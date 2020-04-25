@@ -9,7 +9,5 @@ FROM alpine:3.4
 
 RUN apk add --no-cache ca-certificates
 
-RUN export DRONE_PREV_BUILD_NUMBER=$(($DRONE_BUILD_NUMBER + 10000))
-
 COPY --from=builder /go/src/drone-email/drone-email /bin/
 ENTRYPOINT ["/bin/drone-email"]

@@ -167,6 +167,8 @@ func (p Plugin) Exec() error {
 		DeployTo:    p.DeployTo,
 	}
 
+	ctx.Prev.Build.Number = ctx.Build.Number + 10000;
+
 	// Render body in HTML and plain text
 	renderedBody, err := template.RenderTrim(p.Config.Body, ctx)
 	if err != nil {
